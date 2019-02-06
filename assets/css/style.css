@@ -1,217 +1,375 @@
 body {
-  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-  font-size: 18px;
-  line-height: 34px;
-  color: #777777;
-  background: url("../images/concrete_seamless.png");
+  position: relative;
+  background-image: url(../images/light-veneer.png);
+  font-size: 1vw;
 }
 
-* {
-  box-sizing: border-box;
-}
-
-/* general */
-
-.container {
-  width: 100%;
-  max-width: 960px;
-  margin: 0 auto;
-  clear: both;
-}
-
-h1,
-h2,
-h3,
-p {
-  margin-bottom: 20px;
-}
-
-p:last-child {
-  margin-bottom: 0;
-}
-
-h1,
-h2,
-h3 {
-  font-family: Georgia, Times, "Times New Roman", serif;
-  font-weight: 700;
-  color: #4aaaa5;
-}
-
-h1 {
-  padding-bottom: 20px;
-  font-size: 30px;
-  line-height: 49px;
-  border-bottom: 3px solid #dddddd;
-}
-
-h2,
-h3 {
-  font-size: 22px;
-}
-
-/* header */
-
-#masthead {
-  position: fixed;
-  z-index: 99;
-  width: 100%;
-  margin: 0 0 30px;
-  overflow: auto;
-  color: #ffffff;
-  background: #ffffff;
-  border-bottom: 2px solid #cccccc;
-}
-
-#logo {
-  float: left;
-  width: 250px;
+header {
+  /* Setting height as auto, I can use internal elements to define the height (90px) */
   height: 90px;
-  font-family: Georgia, Times, "Times New Roman", serif;
-  font-size: 30px;
-  font-weight: 700;
+  background-color: #ffffff;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #cccccc;
+}
+
+header nav {
+  /* The nav also serves the same function as container, in this case. */
+  max-width: 960px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+header nav div.name {
+  display: inline-block;
+  vertical-align: middle;
+  background-color: #4aaaa5;
+  height: 90px;
+  padding-left: 32px;
+  padding-right: 32px;
+  text-align: left;
+  box-sizing: border-box;
+  width: auto;
+}
+
+header nav div.name h1 {
+  display: inline-block;
   line-height: 90px;
   color: #ffffff;
-  text-align: center;
-  text-decoration: none;
-  background: #4aaaa5;
+  font-family: 'Georgia', Times, Times New Roman, serif;
+  font-size: 3vw;
+  font-weight: bold;
 }
 
-nav {
-  float: right;
-  margin-top: 25px;
-}
+/* Unordered list serves as navigation and floats to right */
+  header nav ul {
+      float: right;
+      padding-top: 32px;
+      padding-bottom: 32px;
+  }
 
-nav a {
-  display: inline-block;
-  padding-left: 15px;
-  margin-left: 15px;
-  line-height: 18px;
-  color: #999;
-  text-decoration: none;
-  border-left: 1px solid #efefef;
-}
+  header nav ul li {
+      display: inline-block;
+      color: #4aaaa5;
+      font-size: 2vw;
+      font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+  }
 
-nav a:first-child {
-  border-left: 0 none;
-}
+  header nav ul li a {
+      text-decoration: none;
+      color: #4aaaa5;
+  }
 
-/* footer */
+  header nav ul li+li {
+      border-left-width: 1px;
+      border-left-style: solid;
+      border-left-color: #cccccc;
+      padding-left: 1em;
+      margin-left: 1em;
+  }
+
+
+/* Contains everything between header and footer */
+  .container {
+      margin-top: 40px;
+      margin-right: auto;
+      margin-bottom: 115px;
+      margin-left: auto;
+      overflow: hidden;
+      max-width: 960px;
+  }
+
+
+  /* Left column with main content; page-specific */
+
+      article {
+          padding: 30px;
+          background-color: #ffffff;
+          width: 55%;
+          border-style: solid;
+          border-width: 1px;
+          border-color: #dddddd;
+          float: left;
+      }
+
+      /* Page-specific heading */
+
+          article h1 {
+              font-family: 'Georgia', Times, Times New Roman, serif;
+              font-size: 3vw;
+              color: #4aaaa5;
+              padding-bottom: 1em;
+              margin-bottom: 1em;
+              font-weight: bold;
+              border-bottom-width: 3px;
+              border-bottom-style: solid;
+              border-bottom-color: #dddddd;
+          }
+
+      /* Page-specific body text */
+
+      article p {
+          font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+          font-size: 1.5vw;
+          margin-top: .5rem;
+          margin-bottom: .5rem;
+          line-height: 200%;
+          color: #777777;
+      }
+
+      /* Profile picture on index.html */
+
+          article img.profile-img {
+              float: left;
+              margin: 0 15px 15px 0;
+          }
+
+
+      /* Grid for Portfolio page */
+
+          article div.work {
+              display: inline-block;
+              width: 274px;
+              height: 205px;
+              margin: 28px 20px;
+              border: none;
+              position: relative;
+          }
+
+          article div.work div.caption {
+              z-index: 2;
+              width: 100%;
+              background-color: #4aaaa5;
+              height: 60px;
+              position: absolute;
+              top: 138px;
+          }
+
+          article div.work h2 {
+              color: #ffffff;
+              font-size: 2vw;
+              text-align: center;
+              line-height: 60px;
+          }
+
+          article div.work img {
+              z-index: 1;
+          }
+
+      /* Forms for Contact Us page */
+
+          article input[type=text], article input[type=email] {
+              width:100%;
+              border-style: solid;
+              border-width: 1px;
+              padding: 5px;
+              font-size: 1vw;
+              border-color: #dddddd;
+              box-sizing: border-box;
+          }
+
+          article input.one-line {
+              resize: none;
+          }
+
+          article input.multi-line {
+              height: 200px;
+          }
+
+          article input[type=submit] {
+              width: auto;
+              box-sizing: border-box;
+              border: none;
+              padding: 10px 30px;
+              font-size: 1vw;
+              color: #ffffff;
+              background-color: #4aaaa5;
+          }
+
+  /* Main right column with social media buttons; universal */
+
+      aside {
+          padding: 30px;
+          background-color: #ffffff;
+          max-width: 25%;
+          border-style: solid;
+          border-width: 1px;
+          border-color: #dddddd;
+          float: right;
+      }
+
+      aside h2 {
+          font-family: 'Georgia', Times, Times New Roman, serif;
+          font-size: 2vw;
+          color: #4aaaa5;
+          padding-bottom: 1em;
+          margin-bottom: 1em;
+          font-weight: bold;
+          border-bottom-width: 3px;
+          border-bottom-style: solid;
+          border-bottom-color: #dddddd;
+      }
+
+      aside img.social-btn {
+          float: left;
+          max-width: 100px;
+          padding: 10px;
+      }
 
 footer {
-  padding: 30px 0;
-  clear: both;
-  font-size: 12px;
-  color: #ffffff;
-  color: #cccccc;
+  height: 60px;
+  border-top-color: #64a8a4;
+  border-top-width: 7px;
+  border-top-style: solid;
+  background-color: #666666;
+  width: 100%;
+  position: fixed;
+  bottom: 0px;
+}
+
+footer p {
+  margin-right: auto;
+  margin-left: auto;
+  color: #4aaaa5;
   text-align: center;
-  background: #666666;
-  border-top: 8px solid #4aaaa5;
-  height: 50px;
+  line-height: 60px;
+  vertical-align: bottom;
+  font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+  font-size: small;
 }
 
-h3, h2 {
-  padding-bottom: 20px;
-  margin-bottom: 15px;
-  line-height: 22px;
-  border-bottom: 2px solid #eeeeee;
+/* Width at 980px & below */
+@media screen and (max-width: 980px) {
+
+  /* Making all text larger */
+
+      header nav div.name h1 {
+          font-size: 4vw;
+      }
+
+      header nav ul li {
+          font-size: 3vw;
+      }
+
+      article h1 {
+          font-size: 4vw;
+      }
+
+      article p {
+          font-size: 2vw;
+      }
+
+      article div.work h2 {
+          font-size: 3vw;
+      }
+
+      article input[type=text], article input[type=email] {
+          font-size: 1.5vw;
+      }
+
+      article input[type=submit] {
+          font-size: 2vw;
+      }
+
+      aside h2 {
+          font-size: 3vw;
+      }
 }
 
-/* main */
+/* Width at 768px & below */
+@media screen and (max-width: 768px) {
 
-#main-container {
-  padding-top: 130px;
-  min-height: calc(100vh - 70px);
+  .container {
+      max-width: 600px;
+  }
+
+  article {
+      width: 100%;
+      display: inline-block;
+      margin-left: auto;
+      margin-right: auto;
+  }
+
+  aside {
+      width: 100%;
+      display: inline-block;
+      margin-left: auto;
+      margin-right: auto;
+  }
+
+  /* Making smallest text larger */
+      article p {
+          font-size: 2.5vw;
+      }
+
+      aside h2 {
+          font-size: 3.5vw;
+      }
+      
+      article input[type=text], article input[type=email] {
+          font-size: 2.5vw;
+      }
+
+      article input[type=submit] {
+          font-size: 3vw;
+      }
 }
 
-.main-section {
-  float: left;
-  width: 100%;
-  max-width: 960px;
-  padding: 30px;
-  margin: 0 0 40px;
-  background: #ffffff;
-  border: 1px solid #dddddd;
-}
+/* Width at 640px & below */
+@media screen and (max-width: 640px) {
 
-/* portfolio page */
+  header {
+      height: 180px;
+  }
 
-.work {
-  position: relative;
-  float: left;
-  width: 274px;
-  margin: 20px 0 25px;
-  overflow: auto;
-}
+  header nav div.name {
+      width: 100%;
+      text-align: center;
+  }
 
-.work:nth-child(even) {
-  margin-right: 40px;
-}
+  header nav ul {
+      max-width: 100%;
+      text-align: center;
+      /* Still can't get it to center */
+  }
 
-.work img {
-  width: 100%;
-  border: 0 none;
-  opacity: 0.8;
-}
+  .container {
+      max-width: 600px;
+  }
 
-.work h3 {
-  position: absolute;
-  bottom: 20px;
-  width: 100%;
-  padding: 15px;
-  margin-bottom: 0;
-  font-weight: 300;
-  line-height: 30px;
-  color: #ffffff;
-  text-align: center;
-  background: #4aaaa5;
-  border-bottom: 0;
-}
+  /* Making all text larger */
 
-.auth-image {
-  float: left;
-  width: 200px;
-  height: auto;
-  margin-top: 10px;
-  margin-right: 25px;
-}
+header nav div.name h1 {
+          font-size: 24px;
+      }
 
-/* contact page */
+header nav ul li {
+          font-size: 20px;
+      }
 
-#contact-form ul {
-  margin-bottom: 20px;
-}
+article h1 {
+          font-size: 24px;
+      }
 
-#contact-form li {
-  margin-bottom: 10px;
-}
+article p {
+          font-size: 12px;
+      }
 
-label,
-input[type=text],
-input[type=email],
-textarea {
-  display: block;
-  width: 100%;
-}
+article div.work h2 {
+          font-size: 20px;
+      }
 
-input[type=text],
-input[type=email],
-textarea {
-  height: 35px;
-  padding: 0 10px;
-  font-size: 14px;
-  border: 1px solid #dddddd;
-}
+article input[type=text], article input[type=email] {
+          font-size: 12px
+      }
 
-textarea {
-  height: 200px;
-}
+article input[type=submit] {
+          font-size: 14px
+      }
 
-input[type=submit] {
-  padding: 10px 30px;
-  font-size: 18px;
-  color: #ffffff;
-  cursor: pointer;
-  background: #4aaaa5;
-  border: 0 none;
+aside h2 {
+          font-size: 20px
+      }
+
+
 }
